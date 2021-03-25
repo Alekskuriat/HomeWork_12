@@ -6,6 +6,9 @@ public class MyThread extends Thread {
         this.arr = arr;
         this.startingIndex = startingIndex;
     }
+    public MyThread(float[] arr) { ;
+        this.arr = arr;
+    }
 
     @Override
     public void run() {
