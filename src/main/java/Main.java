@@ -28,7 +28,8 @@ public class Main {
         CalculateArray.calculate(arr, 0);
 
         System.out.println("Время вычисления в однопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
-        resultCalculate(arr,10);
+        resultCalculateFirst(arr,10);
+        resultCalculateLast(arr,10);
         System.out.println();
     }
 
@@ -63,17 +64,28 @@ public class Main {
         System.arraycopy(tempArr2, 0, arr, HALF, HALF);
 
         System.out.println("Время вычисления в многопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
-        resultCalculate(arr,10);
-        resultCalculate(tempArr1,10);
-        resultCalculate(tempArr2,10);
+        resultCalculateFirst(arr,10);
+        resultCalculateLast(arr,10);
     }
 
-    private static void resultCalculate(float[] arr, int i) {
+    private static void resultCalculateFirst(float[] arr, int i) {
         System.out.println("Результат вычисления первых " + i + " элементов: ");
         System.out.print("[");
         for (int j = 0; j < i; j++) {
             System.out.print(arr[j]);
             if(j != i - 1){
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]\n");
+    }
+
+    private static void resultCalculateLast(float[] arr, int i) {
+        System.out.println("Результат вычисления последних " + i + " элементов: ");
+        System.out.print("[");
+        for (int j = arr.length - i; j < arr.length; j++) {
+            System.out.print(arr[j]);
+            if(j != arr.length - 1){
                 System.out.print(", ");
             }
         }
