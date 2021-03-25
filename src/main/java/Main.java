@@ -15,7 +15,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         computationInTwoThread();
     }
 
@@ -29,6 +29,8 @@ public class Main {
         CalculateArray.calculate(arr);
 
         System.out.println("Время вычисления в однопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
+        resultCalculate(arr,10);
+        System.out.println();
     }
 
     private static void computationInTwoThread() {
@@ -61,5 +63,14 @@ public class Main {
         System.arraycopy(tempArr2, 0, arr, HALF, HALF);
 
         System.out.println("Время вычисления в многопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
+        resultCalculate(arr,10);
+    }
+
+    private static void resultCalculate(float[] arr, int i) {
+        System.out.println("Результат выисления первых " + i + " элементов: ");
+        for (int j = 0; j < i; j++) {
+            System.out.print("[" + arr[j] + "]");
+        }
+        System.out.println();
     }
 }
