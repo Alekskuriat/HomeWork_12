@@ -25,7 +25,7 @@ public class Main {
         System.out.println("Начало вычисления в однопоточном режиме");
 
         long a = System.currentTimeMillis();
-        CalculateArray.calculate(arr);
+        CalculateArray.calculate(arr, 0);
 
         System.out.println("Время вычисления в однопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
         resultCalculate(arr,10);
@@ -39,14 +39,15 @@ public class Main {
 
         Arrays.fill(arr, 1);
 
+
         System.out.println("Начало вычисления в многопоточном режиме");
         long a = System.currentTimeMillis();
 
         System.arraycopy(arr, 0, tempArr1, 0, HALF);
         System.arraycopy(arr, HALF, tempArr2, 0, HALF);
 
-        MyThread myThread = new MyThread(tempArr1);
-        MyThread myThread1 = new MyThread(tempArr2);
+        MyThread myThread = new MyThread(tempArr1, 0);
+        MyThread myThread1 = new MyThread(tempArr2, HALF);
         myThread.setName("Поток №1");
         myThread1.setName("Поток №2");
         myThread.start();
@@ -63,6 +64,8 @@ public class Main {
 
         System.out.println("Время вычисления в многопоточном режиме: " + (System.currentTimeMillis() - a) + " мс");
         resultCalculate(arr,10);
+        resultCalculate(tempArr1,10);
+        resultCalculate(tempArr2,10);
     }
 
     private static void resultCalculate(float[] arr, int i) {
