@@ -67,10 +67,14 @@ public class Main {
     }
 
     private static void resultCalculate(float[] arr, int i) {
-        System.out.println("Результат выисления первых " + i + " элементов: ");
+        System.out.println("Результат вычисления первых " + i + " элементов: ");
+        System.out.print("[");
         for (int j = 0; j < i; j++) {
-            System.out.print("[" + arr[j] + "]");
+            System.out.print(arr[j]);
+            if(j != i - 1){
+                System.out.print(", ");
+            }
         }
-        System.out.println();
+        System.out.print("]\n");
     }
 }
