@@ -3,7 +3,6 @@ import java.util.Arrays;
 public class Main {
     static final int SIZE = 10_000_000;
     static final int HALF = SIZE / 2;
-    static final int RALF = SIZE / 4;
 
 
     public static void main(String[] args) {
